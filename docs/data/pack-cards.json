@@ -1,0 +1,382 @@
+[
+  {
+    "id": "recovery-body-off",
+    "packId": "recovery-mini-pack",
+    "group": "상태 확인",
+    "cardName": "몸이 먼저 꺼짐",
+    "oneLine": "하기 싫음보다 몸의 꺼짐을 먼저 확인하는 카드입니다.",
+    "whenToUse": "졸림, 통증, 무기력 때문에 행동이 막힐 때",
+    "immediateAction": "눈, 목, 어깨, 배, 다리 중 가장 불편한 곳 하나를 고르세요.",
+    "nextStep": "불편한 곳이 확인되면 회복 행동 그룹으로 이동하세요."
+  },
+  {
+    "id": "recovery-too-much-stimulus",
+    "packId": "recovery-mini-pack",
+    "group": "상태 확인",
+    "cardName": "자극이 너무 많음",
+    "oneLine": "내가 약한 게 아니라 들어온 자극이 많은지 보는 카드입니다.",
+    "whenToUse": "소리, 화면, 대화, 알림이 버겁게 느껴질 때",
+    "immediateAction": "알림 하나를 끄거나 화면 밝기를 낮추세요.",
+    "nextStep": "자극을 줄인 뒤 3분만 몸을 낮추세요."
+  },
+  {
+    "id": "recovery-thinking-overheat",
+    "packId": "recovery-mini-pack",
+    "group": "상태 확인",
+    "cardName": "생각이 과열됨",
+    "oneLine": "생각이 너무 많이 돌아 행동 에너지를 쓰고 있는지 보는 카드입니다.",
+    "whenToUse": "몸은 가만히 있는데 머릿속만 계속 바쁠 때",
+    "immediateAction": "지금 머릿속 문장 하나만 종이에 옮기세요.",
+    "nextStep": "옮긴 뒤 판단하지 말고 먼저 먹기나 몸 낮추기로 이동하세요."
+  },
+  {
+    "id": "recovery-eat-first",
+    "packId": "recovery-mini-pack",
+    "group": "회복 행동",
+    "cardName": "먼저 먹기",
+    "oneLine": "판단보다 혈당과 기본 자원을 먼저 채우는 카드입니다.",
+    "whenToUse": "예민함, 멍함, 짜증이 배고픔과 섞여 있을 때",
+    "immediateAction": "간단히 먹을 수 있는 것을 하나 고르세요.",
+    "nextStep": "먹은 뒤 10분 후 다시 상태를 보세요."
+  },
+  {
+    "id": "recovery-sleep-first",
+    "packId": "recovery-mini-pack",
+    "group": "회복 행동",
+    "cardName": "먼저 자기",
+    "oneLine": "오늘의 해결보다 수면 회복을 먼저 놓는 카드입니다.",
+    "whenToUse": "밤에 계속 판단하거나 자극을 찾고 있을 때",
+    "immediateAction": "지금 더 볼 것을 하나 닫고 눕는 시간을 정하세요.",
+    "nextStep": "내일 첫 조각은 재점화팩에서 고르세요."
+  },
+  {
+    "id": "recovery-lower-body",
+    "packId": "recovery-mini-pack",
+    "group": "회복 행동",
+    "cardName": "몸 낮추기",
+    "oneLine": "긴장을 낮춰 몸이 다시 안전하다고 느끼게 하는 카드입니다.",
+    "whenToUse": "어깨가 올라가고 숨이 짧아져 있을 때",
+    "immediateAction": "발바닥을 바닥에 붙이고 숨을 세 번 길게 내쉬세요.",
+    "nextStep": "조금 내려오면 오늘은 줄이기로 이동하세요."
+  },
+  {
+    "id": "recovery-reduce-today",
+    "packId": "recovery-mini-pack",
+    "group": "회복 행동",
+    "cardName": "오늘은 줄이기",
+    "oneLine": "오늘의 목표를 회복 가능한 크기로 줄이는 카드입니다.",
+    "whenToUse": "계획은 많은데 몸이 따라오지 않을 때",
+    "immediateAction": "오늘 꼭 할 것 하나만 남기고 나머지는 내일 칸에 두세요.",
+    "nextStep": "남긴 하나를 10분 단위로 줄이세요."
+  },
+  {
+    "id": "restart-five-minutes",
+    "packId": "restart-pack",
+    "group": "재점화 장비",
+    "cardName": "5분만 켜기",
+    "oneLine": "완주가 아니라 다시 켜는 데만 집중하는 카드입니다.",
+    "whenToUse": "시작 생각만 해도 부담스러울 때",
+    "immediateAction": "타이머를 5분으로 맞추고 멈춰도 되는 상태로 시작하세요.",
+    "nextStep": "5분 뒤 계속할지 멈출지만 고르세요."
+  },
+  {
+    "id": "restart-first-piece",
+    "packId": "restart-pack",
+    "group": "재점화 장비",
+    "cardName": "첫 조각 찾기",
+    "oneLine": "큰 일을 다시 시작 가능한 첫 조각으로 쪼개는 카드입니다.",
+    "whenToUse": "무엇부터 해야 할지 몰라 다시 꺼질 때",
+    "immediateAction": "열기, 찾기, 쓰기 중 하나만 고르세요.",
+    "nextStep": "첫 조각을 끝내면 5분만 켜기로 이동하세요."
+  },
+  {
+    "id": "restart-people-charge",
+    "packId": "restart-pack",
+    "group": "재점화 장비",
+    "cardName": "사람 충전",
+    "oneLine": "혼자 켜지지 않을 때 사람의 온도를 빌리는 카드입니다.",
+    "whenToUse": "혼자 있으면 계속 미루게 될 때",
+    "immediateAction": "누군가에게 '나 5분만 시작한다'고 알려보세요.",
+    "nextStep": "알린 뒤 바로 첫 조각을 실행하세요."
+  },
+  {
+    "id": "restart-new-stimulus",
+    "packId": "restart-pack",
+    "group": "재점화 장비",
+    "cardName": "새 자극 넣기",
+    "oneLine": "완전히 새 목표가 아니라 작은 자극으로 흐름을 다시 켜는 카드입니다.",
+    "whenToUse": "지루함 때문에 시작이 꺼질 때",
+    "immediateAction": "장소, 도구, 음악 중 하나만 바꿔보세요.",
+    "nextStep": "목표는 그대로 두고 방식만 바꿔 5분 실행하세요."
+  },
+  {
+    "id": "restart-switch-way",
+    "packId": "restart-pack",
+    "group": "재점화 장비",
+    "cardName": "방식 바꾸기",
+    "oneLine": "안 켜지는 방식을 붙잡지 않고 시작 방식을 바꾸는 카드입니다.",
+    "whenToUse": "계속 같은 방식으로 시작하려다 막힐 때",
+    "immediateAction": "앉아서 안 되면 서서, 쓰기가 안 되면 말로 시작하세요.",
+    "nextStep": "바꾼 방식으로 5분만 켜세요."
+  },
+  {
+    "id": "restart-not-failed",
+    "packId": "restart-pack",
+    "group": "꺼짐 확인",
+    "cardName": "망한 게 아니라 끊긴 것",
+    "oneLine": "끊김을 실패가 아니라 다시 연결할 지점으로 보는 카드입니다.",
+    "whenToUse": "한 번 놓친 뒤 전부 망한 것처럼 느껴질 때",
+    "immediateAction": "'망함' 대신 '끊김'이라고 적어보세요.",
+    "nextStep": "끊긴 지점을 찾고 첫 조각 찾기로 이동하세요."
+  },
+  {
+    "id": "restart-skip-guilt",
+    "packId": "restart-pack",
+    "group": "복귀권",
+    "cardName": "죄책감 생략",
+    "oneLine": "다시 시작하기 전에 긴 자책 시간을 생략하는 카드입니다.",
+    "whenToUse": "자책하느라 시작 에너지가 더 줄어들 때",
+    "immediateAction": "자책 문장 대신 '다시 켤 조각은 ___'라고 쓰세요.",
+    "nextStep": "바로 5분만 켜기로 이동하세요."
+  },
+  {
+    "id": "restart-ticket",
+    "packId": "restart-pack",
+    "group": "복귀권",
+    "cardName": "재시작권",
+    "oneLine": "이전 흐름을 따지지 않고 다시 들어오는 카드입니다.",
+    "whenToUse": "복귀할 자격이 없는 것처럼 느껴질 때",
+    "immediateAction": "'나는 다시 들어와도 된다'를 한 번 읽고 시작하세요.",
+    "nextStep": "첫 조각 하나만 고르세요."
+  },
+  {
+    "id": "restart-leave-past",
+    "packId": "restart-pack",
+    "group": "복귀권",
+    "cardName": "지난 건 묻지 않기",
+    "oneLine": "지난 공백을 설명하지 않고 지금 조각으로 돌아오는 카드입니다.",
+    "whenToUse": "왜 못 했는지 설명하다가 또 못 하게 될 때",
+    "immediateAction": "지난 이유를 적지 말고 오늘 할 첫 행동만 적으세요.",
+    "nextStep": "오늘 행동을 5분 단위로 켜세요."
+  },
+  {
+    "id": "stop-loop-name",
+    "packId": "stop-pack",
+    "group": "과열 확인",
+    "cardName": "루프 이름 붙이기",
+    "oneLine": "내가 반복 중인 자극 루프를 알아차리는 카드입니다.",
+    "whenToUse": "계속 더 보고, 더 먹고, 더 말하고 싶을 때",
+    "immediateAction": "지금 루프 이름을 '___ 루프'라고 붙이세요.",
+    "nextStep": "이름을 붙인 뒤 멈출 행동 하나를 고르세요."
+  },
+  {
+    "id": "stop-one-action",
+    "packId": "stop-pack",
+    "group": "브레이크 행동",
+    "cardName": "하나만 멈추기",
+    "oneLine": "전체 생활이 아니라 지금 망가질 행동 하나만 멈추는 카드입니다.",
+    "whenToUse": "전부 고치려다 아무것도 못 멈출 때",
+    "immediateAction": "지금 더 하면 손상될 행동 하나를 닫으세요.",
+    "nextStep": "닫은 뒤 몸 낮추기로 이동하세요."
+  },
+  {
+    "id": "stop-night-close",
+    "packId": "stop-pack",
+    "group": "브레이크 행동",
+    "cardName": "밤 루프 닫기",
+    "oneLine": "밤에 켜진 자극 흐름을 다음 날로 넘기는 카드입니다.",
+    "whenToUse": "늦은 시간에 멈추기 어려울 때",
+    "immediateAction": "내일 다시 볼 시간을 적고 지금 창을 닫으세요.",
+    "nextStep": "자원 회복 미니팩으로 이동하세요."
+  },
+  {
+    "id": "stop-after-note",
+    "packId": "stop-pack",
+    "group": "멈춘 뒤 정리",
+    "cardName": "멈춘 뒤 한 줄",
+    "oneLine": "멈춘 행동을 자책하지 않고 다음 신호로 남기는 카드입니다.",
+    "whenToUse": "멈춘 뒤 허전함이나 자책이 올라올 때",
+    "immediateAction": "'방금 멈춘 것은 ___이다'라고 한 줄만 적으세요.",
+    "nextStep": "다음 행동은 회복 또는 기준 세우기 중 하나로 고르세요."
+  },
+  {
+    "id": "anxiety-fact-unknown",
+    "packId": "anxiety-buffer-pack",
+    "group": "걱정 분리",
+    "cardName": "사실과 모름 나누기",
+    "oneLine": "걱정을 확인 가능한 것과 아직 모르는 것으로 나누는 카드입니다.",
+    "whenToUse": "머릿속에서 최악의 장면이 커질 때",
+    "immediateAction": "확인한 것 1개와 아직 모르는 것 1개를 적으세요.",
+    "nextStep": "확인 행동 하나만 고르세요."
+  },
+  {
+    "id": "anxiety-one-check",
+    "packId": "anxiety-buffer-pack",
+    "group": "확인 행동",
+    "cardName": "한 가지만 확인",
+    "oneLine": "불안을 줄이기 위해 확인 범위를 하나로 제한하는 카드입니다.",
+    "whenToUse": "계속 검색하거나 묻고 싶어질 때",
+    "immediateAction": "지금 확인할 질문 하나만 적고 그것만 확인하세요.",
+    "nextStep": "확인 뒤 시작 낮추기로 이동하세요."
+  },
+  {
+    "id": "anxiety-small-start",
+    "packId": "anxiety-buffer-pack",
+    "group": "시작 낮추기",
+    "cardName": "작게 시작하기",
+    "oneLine": "걱정이 있어도 가능한 만큼만 시작하는 카드입니다.",
+    "whenToUse": "시작 전 걱정 때문에 첫 행동이 멈출 때",
+    "immediateAction": "실패해도 손상이 적은 3분 행동을 고르세요.",
+    "nextStep": "3분 뒤 신호를 다시 보세요."
+  },
+  {
+    "id": "anxiety-safe-line",
+    "packId": "anxiety-buffer-pack",
+    "group": "시작 낮추기",
+    "cardName": "안전선 정하기",
+    "oneLine": "불안을 낮추기 위해 멈출 기준을 미리 정하는 카드입니다.",
+    "whenToUse": "시작하면 너무 커질까 봐 두려울 때",
+    "immediateAction": "'여기까지 하면 멈춘다'는 선을 하나 정하세요.",
+    "nextStep": "안전선을 정한 뒤 첫 행동을 시작하세요."
+  },
+  {
+    "id": "relationship-my-part",
+    "packId": "relationship-armor-pack",
+    "group": "몫 나누기",
+    "cardName": "내 몫 상대 몫",
+    "oneLine": "관계 문제에서 내가 들 몫과 아닌 몫을 나누는 카드입니다.",
+    "whenToUse": "상대 감정까지 내가 책임져야 할 것 같을 때",
+    "immediateAction": "내 몫 하나와 상대 몫 하나를 따로 적으세요.",
+    "nextStep": "내 몫만 작게 처리하세요."
+  },
+  {
+    "id": "relationship-distance",
+    "packId": "relationship-armor-pack",
+    "group": "거리 조절",
+    "cardName": "거리 한 칸",
+    "oneLine": "관계를 끊지 않고 한 칸 떨어지는 카드입니다.",
+    "whenToUse": "가까이 있으면 감정이 너무 옮겨올 때",
+    "immediateAction": "답장, 만남, 대화 중 하나의 속도를 늦추세요.",
+    "nextStep": "느린 속도에서 내 상태를 다시 보세요."
+  },
+  {
+    "id": "relationship-no-line",
+    "packId": "relationship-armor-pack",
+    "group": "말하기",
+    "cardName": "작은 거절 문장",
+    "oneLine": "상대를 공격하지 않고 내 한계를 말하는 카드입니다.",
+    "whenToUse": "거절이 어렵지만 받아들이면 무리일 때",
+    "immediateAction": "'지금은 어렵고, ___까지는 가능해'라고 말하세요.",
+    "nextStep": "말한 뒤 방패형 카드로 경계를 유지하세요."
+  },
+  {
+    "id": "relationship-emotion-filter",
+    "packId": "relationship-armor-pack",
+    "group": "거리 조절",
+    "cardName": "감정 필터",
+    "oneLine": "상대 감정이 내 감정처럼 들어오는 것을 걸러내는 카드입니다.",
+    "whenToUse": "상대 기분 때문에 내 하루가 흔들릴 때",
+    "immediateAction": "'이 감정은 누구의 것인가?'라고 한 번 물어보세요.",
+    "nextStep": "내 감정만 남겨 상태 안정으로 이동하세요."
+  },
+  {
+    "id": "standard-one-rule",
+    "packId": "standard-pack",
+    "group": "기준 찾기",
+    "cardName": "기준 하나",
+    "oneLine": "이번 선택에서 가장 중요한 기준 하나만 세우는 카드입니다.",
+    "whenToUse": "조건이 많아져 아무것도 고르지 못할 때",
+    "immediateAction": "이번 선택에서 제일 중요한 단어 하나를 고르세요.",
+    "nextStep": "그 기준으로 선택지를 다시 보세요."
+  },
+  {
+    "id": "standard-two-columns",
+    "packId": "standard-pack",
+    "group": "순서 고정",
+    "cardName": "먼저 나중",
+    "oneLine": "흩어진 일을 먼저와 나중으로 나누는 카드입니다.",
+    "whenToUse": "순서가 엉켜 시작이 막힐 때",
+    "immediateAction": "해야 할 일을 먼저 1개, 나중 1개로만 나누세요.",
+    "nextStep": "먼저 칸의 일만 10분 실행하세요."
+  },
+  {
+    "id": "standard-enough",
+    "packId": "standard-pack",
+    "group": "선택 마무리",
+    "cardName": "충분 기준",
+    "oneLine": "완벽 기준 대신 충분 기준으로 선택을 닫는 카드입니다.",
+    "whenToUse": "더 좋은 선택이 있을까 봐 계속 비교할 때",
+    "immediateAction": "'이 정도면 충분하다'의 조건 하나를 적으세요.",
+    "nextStep": "충분 조건을 만족하면 선택을 닫으세요."
+  },
+  {
+    "id": "standard-stop-adding",
+    "packId": "standard-pack",
+    "group": "선택 마무리",
+    "cardName": "조건 추가 멈춤",
+    "oneLine": "선택을 방해하는 새 조건 추가를 멈추는 카드입니다.",
+    "whenToUse": "기준이 계속 늘어나 선택이 늦어질 때",
+    "immediateAction": "지금부터 새 조건은 메모만 하고 선택 기준에는 넣지 마세요.",
+    "nextStep": "기준 하나로 다시 선택하세요."
+  },
+  {
+    "id": "reality-today-piece",
+    "packId": "reality-link-pack",
+    "group": "오늘 조각",
+    "cardName": "오늘 조각",
+    "oneLine": "큰 의미를 오늘 가능한 작은 행동으로 낮추는 카드입니다.",
+    "whenToUse": "왜 하는지는 알지만 오늘 행동이 안 잡힐 때",
+    "immediateAction": "오늘 10분 안에 만질 수 있는 조각 하나를 적으세요.",
+    "nextStep": "조각을 찾으면 바로 5분만 실행하세요."
+  },
+  {
+    "id": "reality-no-explain",
+    "packId": "reality-link-pack",
+    "group": "의미 낮추기",
+    "cardName": "설명 줄이기",
+    "oneLine": "의미 설명을 줄이고 행동을 찾는 카드입니다.",
+    "whenToUse": "계속 이유를 설명하지만 움직이지 못할 때",
+    "immediateAction": "이유 문장을 멈추고 동사 하나만 고르세요.",
+    "nextStep": "그 동사를 오늘 조각으로 바꾸세요."
+  },
+  {
+    "id": "reality-touch-proof",
+    "packId": "reality-link-pack",
+    "group": "현실 연결",
+    "cardName": "만질 수 있는 증거",
+    "oneLine": "결과가 아니라 오늘 남길 수 있는 작은 증거를 정하는 카드입니다.",
+    "whenToUse": "의미는 큰데 성과가 멀게 느껴질 때",
+    "immediateAction": "오늘 남길 수 있는 파일, 문장, 사진, 기록 중 하나를 고르세요.",
+    "nextStep": "증거 하나를 남기고 멈추세요."
+  },
+  {
+    "id": "variation-same-goal",
+    "packId": "variation-sustain-pack",
+    "group": "방식 변주",
+    "cardName": "목표는 그대로",
+    "oneLine": "목표를 바꾸지 않고 방식만 바꾸는 카드입니다.",
+    "whenToUse": "질려서 목표 자체를 버리고 싶을 때",
+    "immediateAction": "목표 문장은 그대로 두고 장소나 도구만 바꾸세요.",
+    "nextStep": "바꾼 방식으로 10분만 유지하세요."
+  },
+  {
+    "id": "variation-boredom-signal",
+    "packId": "variation-sustain-pack",
+    "group": "지루함 확인",
+    "cardName": "지루함 신호",
+    "oneLine": "끊김이 게으름이 아니라 지루함인지 확인하는 카드입니다.",
+    "whenToUse": "새 자극이 없으면 바로 멈추고 싶을 때",
+    "immediateAction": "지루한 지점이 반복, 장소, 방식 중 어디인지 고르세요.",
+    "nextStep": "그 지점 하나만 변주하세요."
+  },
+  {
+    "id": "variation-keep-chain",
+    "packId": "variation-sustain-pack",
+    "group": "지속 유지",
+    "cardName": "연결만 유지",
+    "oneLine": "성과보다 끊기지 않는 연결을 우선하는 카드입니다.",
+    "whenToUse": "완벽히 못 할 것 같아 아예 놓고 싶을 때",
+    "immediateAction": "오늘은 1분 기록만 남겨도 연결로 인정하세요.",
+    "nextStep": "내일 방식 변주로 다시 이어가세요."
+  }
+]

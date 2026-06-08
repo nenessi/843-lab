@@ -1,0 +1,235 @@
+[
+  {
+    "id": "recovery-mini-pack",
+    "packName": "자원 회복 미니팩",
+    "displayName": "컨디션 회복팩",
+    "displayDescription": "잠, 식사, 물, 몸 상태가 먼저 무너졌을 때 보는 카드 묶음입니다.",
+    "oneLine": "몸과 힘이 바닥일 때 행동보다 회복을 먼저 보게 돕는 팩",
+    "whenToUse": "졸림, 배고픔, 통증, 무기력, 감각 과부하, 감정 소진이 먼저 느껴질 때",
+    "firstStep": "지금 못 하는 게 의지 문제가 아니라 자원 문제인지 먼저 본다.",
+    "packRole": "다른 것보다 회복을 먼저 볼지 확인하기",
+    "cardGroups": ["상태 확인", "회복 행동"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "몸 상태 확인하기",
+        "groups": ["상태 확인"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "먼저 회복하기",
+        "groups": ["회복 행동"],
+        "excludeCardIds": ["recovery-reduce-today"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "다시 할지 말지 정하기",
+        "cardIds": ["recovery-reduce-today"]
+      }
+    ],
+    "note": "힘이 바닥난 상태에서는 무리해서 움직이기보다 회복을 먼저 보는 것이 안전합니다."
+  },
+  {
+    "id": "restart-pack",
+    "packName": "재점화팩",
+    "displayName": "다시 시작 팩",
+    "displayDescription": "한 번 끊긴 일을 작게 다시 잡고 싶을 때 보는 카드 묶음입니다.",
+    "oneLine": "끊긴 행동을 실패 처리하지 않고 다시 연결하는 팩",
+    "whenToUse": "자꾸 미루고, 끊기고, 다시 시작하기 싫어질 때",
+    "firstStep": "5분만 다시 켤 수 있는 가장 작은 행동을 고른다.",
+    "packRole": "끊김 이후 재연결",
+    "cardGroups": ["꺼짐 확인", "재점화 장비", "복귀권"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "꺼진 이유 확인하기",
+        "groups": ["꺼짐 확인"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "다시 켤 방법 고르기",
+        "groups": ["재점화 장비"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "다시 시작할 권한 주기",
+        "groups": ["복귀권"]
+      }
+    ],
+    "note": "지난 흐름을 평가하기보다 다시 켤 수 있는 작은 접점을 찾게 돕습니다."
+  },
+  {
+    "id": "stop-pack",
+    "packName": "멈춤팩",
+    "displayName": "잠깐 멈춤 팩",
+    "displayDescription": "계속 붙잡고 있는 생각, 일, 화면을 잠깐 멈추고 싶을 때 봅니다.",
+    "oneLine": "계속 더 하려는 상태를 멈추게 하는 브레이크 팩",
+    "whenToUse": "과열, 충동, 자동행동, 밤 시간대 자극 루프가 켜질 때",
+    "firstStep": "지금 더 하면 망가질 행동 하나를 멈춘다.",
+    "packRole": "과열 차단",
+    "cardGroups": ["과열 확인", "브레이크 행동", "멈춘 뒤 정리"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "계속 붙잡는 것 보기",
+        "groups": ["과열 확인"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "하나 멈추기",
+        "groups": ["브레이크 행동"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "멈춘 뒤 정리하기",
+        "groups": ["멈춘 뒤 정리"]
+      }
+    ],
+    "note": "멈춤팩은 더 잘하기 위한 압박을 낮추고, 손상되기 전에 흐름을 끊게 돕습니다."
+  },
+  {
+    "id": "anxiety-buffer-pack",
+    "packName": "불안 완충팩",
+    "displayName": "걱정 줄이기 팩",
+    "displayDescription": "걱정이 커져서 시작이 어려울 때, 확인할 것과 내려놓을 것을 나눠 봅니다.",
+    "oneLine": "걱정이 너무 커져 시작과 판단이 막힐 때 쓰는 완충팩",
+    "whenToUse": "시작 전 걱정, 최악의 경우 상상, 실수 두려움, 미래 시뮬레이션이 커질 때",
+    "firstStep": "지금 실제로 확인할 수 있는 것과 아직 모르는 것을 나눈다.",
+    "packRole": "걱정 크기 줄이기",
+    "cardGroups": ["걱정 분리", "확인 행동", "시작 낮추기"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "걱정 분리하기",
+        "groups": ["걱정 분리"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "확인 줄이기",
+        "groups": ["확인 행동"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "시작 낮추기",
+        "groups": ["시작 낮추기"]
+      }
+    ],
+    "note": "불안 완충팩은 걱정을 없애는 팩이 아니라, 움직일 수 있는 크기로 낮추는 팩입니다."
+  },
+  {
+    "id": "relationship-armor-pack",
+    "packName": "관계 방어구팩",
+    "displayName": "사람 일 정리팩",
+    "displayDescription": "부탁, 눈치, 미안함, 상대 반응 때문에 마음이 묶일 때 봅니다.",
+    "oneLine": "사람 때문에 흔들릴 때 마음이 덜 다치게 거리를 조절하는 팩",
+    "whenToUse": "부탁, 거절, 과잉책임, 감정 전염, 거리 조절이 어려울 때",
+    "firstStep": "이 문제가 내 몫인지 상대 몫인지 먼저 나눈다.",
+    "packRole": "관계 거리 조절",
+    "cardGroups": ["몫 나누기", "거리 조절", "말하기"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "내 몫 보기",
+        "groups": ["몫 나누기"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "거리 조절하기",
+        "groups": ["거리 조절"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "말 정하기",
+        "groups": ["말하기"]
+      }
+    ],
+    "note": "사람을 밀어내기보다 내 힘이 새지 않는 거리를 찾게 돕습니다."
+  },
+  {
+    "id": "standard-pack",
+    "packName": "기준 세우기팩",
+    "displayName": "선택 기준 팩",
+    "displayDescription": "뭘 먼저 할지, 어디까지 할지 정하기 어려울 때 봅니다.",
+    "oneLine": "선택 기준이 흔들릴 때 하나의 기준을 세우는 팩",
+    "whenToUse": "뭘 골라야 할지 모르겠고, 기준이 계속 바뀔 때",
+    "firstStep": "이번 선택에서 가장 중요한 기준 하나만 고른다.",
+    "packRole": "선택 기준 고정",
+    "cardGroups": ["기준 찾기", "순서 고정", "선택 마무리"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "기준 잡기",
+        "groups": ["기준 찾기"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "순서 정하기",
+        "groups": ["순서 고정"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "선택 마무리하기",
+        "groups": ["선택 마무리"]
+      }
+    ],
+    "note": "기준 세우기팩은 모든 조건을 맞추려는 흐름을 줄이고, 이번 선택의 중심 하나를 잡게 돕습니다."
+  },
+  {
+    "id": "reality-link-pack",
+    "packName": "현실 연결팩",
+    "displayName": "오늘 할 일 찾기 팩",
+    "displayDescription": "의미는 큰데 오늘 뭘 해야 할지 안 보일 때 봅니다.",
+    "oneLine": "의미는 큰데 오늘 할 행동이 안 잡힐 때 현실 행동으로 연결하는 팩",
+    "whenToUse": "하고 싶은 이유는 큰데, 오늘 뭘 해야 할지 안 보일 때",
+    "firstStep": "의미를 설명하지 말고 오늘 가능한 첫 조각을 찾는다.",
+    "packRole": "의미를 행동으로 낮추기",
+    "cardGroups": ["의미 낮추기", "오늘 조각", "현실 연결"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "크게 느껴지는 것 낮추기",
+        "groups": ["의미 낮추기"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "오늘 조각 찾기",
+        "groups": ["오늘 조각"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "증거 남기기",
+        "groups": ["현실 연결"]
+      }
+    ],
+    "note": "현실 연결팩은 큰 의미를 버리는 것이 아니라, 오늘 만질 수 있는 행동으로 낮추게 돕습니다."
+  },
+  {
+    "id": "variation-sustain-pack",
+    "packName": "변주 지속팩",
+    "displayName": "질림 방지 팩",
+    "displayDescription": "반복되면서 흥미가 꺼질 때, 목표는 유지하고 방식만 바꿔 봅니다.",
+    "oneLine": "금방 질리는 사람을 위해 같은 목표를 다른 방식으로 이어가는 팩",
+    "whenToUse": "반복이 지루해서 끊기고, 새 자극이 없으면 유지가 안 될 때",
+    "firstStep": "목표는 유지하고 방식만 작게 바꾼다.",
+    "packRole": "지루함을 줄이고 지속 유지",
+    "cardGroups": ["지루함 확인", "방식 변주", "지속 유지"],
+    "steps": [
+      {
+        "stepNumber": 1,
+        "stepTitle": "지루한 지점 보기",
+        "groups": ["지루함 확인"]
+      },
+      {
+        "stepNumber": 2,
+        "stepTitle": "방식만 바꾸기",
+        "groups": ["방식 변주"]
+      },
+      {
+        "stepNumber": 3,
+        "stepTitle": "연결 유지하기",
+        "groups": ["지속 유지"]
+      }
+    ],
+    "note": "목표를 바꾸기 전에 방식만 가볍게 바꿔 이어가기의 마찰을 낮춥니다."
+  }
+]

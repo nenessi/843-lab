@@ -1,0 +1,58 @@
+{
+  "states": [
+    {
+      "id": "heat-stuck-pushing",
+      "label": "그만해야 하는데 계속 붙잡고 있다",
+      "description": "쉬거나 멈춰야 하는 걸 알지만, 일·확인·화면·생각을 계속 붙잡고 있다.",
+      "cards": ["tanker-shield", "tanker-absorb", "dealer-switch"]
+    },
+    {
+      "id": "heat-cannot-rest",
+      "label": "해내야 해서 쉬지 못한다",
+      "description": "끝내야 한다, 보여줘야 한다, 잘해야 한다는 생각 때문에 쉬거나 줄이기가 어렵다.",
+      "cards": ["dealer-burst", "supporter-align", "healer-self"]
+    },
+    {
+      "id": "heat-bored-scatter",
+      "label": "지겨워서 자꾸 다른 데로 샌다",
+      "description": "반복이 지루해지고 흥미가 꺼져서, 새롭거나 쉬운 쪽으로 마음이 간다.",
+      "cards": ["dealer-switch", "dealer-sustain", "supporter-direction"]
+    },
+    {
+      "id": "load-perfect-stuck",
+      "label": "제대로 해야 해서 결정이 안 난다",
+      "description": "맞는지, 어디까지 해야 하는지, 어떤 순서가 나은지 계속 걸려서 고르기 어렵다.",
+      "cards": ["supporter-align", "supporter-direction", "tanker-shield"]
+    },
+    {
+      "id": "load-people-stuck",
+      "label": "사람 반응이 계속 걸린다",
+      "description": "부탁, 답장, 눈치, 미안함, 상대 반응 때문에 마음이 묶여 있다.",
+      "cards": ["healer-other", "tanker-shield", "tanker-guide"]
+    },
+    {
+      "id": "load-checking-loop",
+      "label": "문제 생길까 봐 계속 확인한다",
+      "description": "틀릴까 봐, 빠뜨렸을까 봐, 나중에 문제가 될까 봐 확인이 길어진다.",
+      "cards": ["supporter-signal", "supporter-align", "healer-stabilize"]
+    },
+    {
+      "id": "freeze-low-energy",
+      "label": "전체적으로 가라앉아 시작이 안 된다",
+      "description": "특별히 하나를 고르기 어렵지만, 전체적으로 가라앉고 움직이기 어렵다.",
+      "cards": ["healer-self", "healer-stabilize", "dealer-sustain"]
+    },
+    {
+      "id": "freeze-overthinking",
+      "label": "생각만 많고 밖으로 안 나온다",
+      "description": "머릿속에서는 계속 정리하고 있는데, 말·메모·행동으로 꺼내지 못하고 있다.",
+      "cards": ["supporter-align", "supporter-direction", "dealer-sustain"]
+    },
+    {
+      "id": "freeze-too-big",
+      "label": "너무 크게 느껴져서 손이 안 간다",
+      "description": "중요하거나 의미 있는 일일수록 더 무겁게 느껴져서 오늘 할 작은 조각이 안 보인다.",
+      "cards": ["supporter-direction", "dealer-sustain", "dealer-switch"]
+    }
+  ]
+}
