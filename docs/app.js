@@ -3,6 +3,7 @@ const supplyChecks = document.querySelector("#supplyChecks");
 const supplyResult = document.querySelector("#supplyResult");
 const supplyCheckButton = document.querySelector("#supplyCheckButton");
 const supplyPackButton = document.querySelector("#supplyPackButton");
+const supplyOkayButton = document.querySelector("#supplyOkayButton");
 const stateButtons = document.querySelector("#stateButtons");
 const selectedState = document.querySelector("#selectedState");
 const positionPanel = document.querySelector("#positionPanel");
@@ -73,11 +74,11 @@ async function loadPrototypeData() {
     packsResponse,
     packCardsResponse
   ] = await Promise.all([
-    fetch("./data/cards.json"),
-    fetch("./data/router.json"),
-    fetch("./data/classes.json"),
-    fetch("./data/packs.json"),
-    fetch("./data/pack-cards.json")
+    fetch("../data/cards.json"),
+    fetch("../data/router.json"),
+    fetch("../data/classes.json"),
+    fetch("../data/packs.json"),
+    fetch("../data/pack-cards.json")
   ]);
 
   if (
@@ -324,8 +325,44 @@ function renderSupplyChecks() {
     .join("");
 }
 
+function clearSupplyOkaySelection() {
+  supplyOkayButton.classList.remove("is-selected");
+  supplyOkayButton.setAttribute("aria-pressed", "false");
+}
+
+function selectSupplyOkay() {
+  supplyChecks.querySelectorAll("input").forEach((input) => {
+    input.checked = false;
+  });
+  supplyOkayButton.classList.add("is-selected");
+  supplyOkayButton.setAttribute("aria-pressed", "true");
+  supplyLow = false;
+  supplyPackButton.hidden = true;
+  supplyResult.innerHTML = `
+    <strong>기본 컨디션은 괜찮은 편으로 볼게요.</strong>
+    <p>다음 단계에서 지금 막힌 상태에 가까운 문장을 골라 봅니다.</p>
+  `;
+  goToStep(2);
+}
+
+function handleSupplyInputChange(event) {
+  if (event.target.matches("input[type='checkbox']")) {
+    clearSupplyOkaySelection();
+  }
+}
+
 function handleSupplyCheck() {
   const checkedCount = supplyChecks.querySelectorAll("input:checked").length;
+
+  if (checkedCount === 0 && !supplyOkayButton.classList.contains("is-selected")) {
+    supplyResult.innerHTML = `
+      <strong>해당되는 항목이 없다면 아래 선택지를 눌러 주세요.</strong>
+      <p>기본 컨디션이 괜찮은 편이면 다음 단계로 넘어가도 됩니다.</p>
+    `;
+    supplyPackButton.hidden = true;
+    return;
+  }
+
   supplyLow = checkedCount >= 2;
 
   if (supplyLow) {
@@ -388,7 +425,7 @@ function handleStateClick(event) {
 function renderOperationCards() {
   const positions = [...new Set(recommendedCards.map((card) => card.position))];
 
-  selectedState.textContent = `"${selectedStateData.label}"에 가까울 때 먼저 확인해볼 카드입니다.`;
+  selectedState.textContent = `"${selectedStateData.label}"에 가까울 때 먼저 해볼 만한 후보입니다. 하나만 골라도 됩니다.`;
   positionPanel.innerHTML = `
     <span class="panel-label">지금 내 방식과 가까운 카드</span>
     <div class="position-list">
@@ -398,7 +435,10 @@ function renderOperationCards() {
 
   cardResults.innerHTML = recommendedCards
     .map(
-      (card, index) => `
+      (card, index) => {
+        const linkedPacks = getLinkedPackDisplayNames(card);
+
+        return `
         <article class="card core-card">
           <span class="card-number">${index + 1}</span>
           <h3>${card.cardName}</h3>
@@ -409,12 +449,21 @@ function renderOperationCards() {
             <p>${card.whenToUse}</p>
           </div>
           <div class="card-detail">
-            <strong>내 상태 점검</strong>
-            <p>${card.checkText}</p>
+            <strong>지금 할 것</strong>
+            <p>${card.immediateAction}</p>
           </div>
-          <button class="inline-action" type="button" data-card-id="${card.id}">이 카드 보기</button>
+          ${
+            linkedPacks.length
+              ? `<div class="card-detail">
+                  <strong>더 필요하면 볼 팩</strong>
+                  <p>${linkedPacks.join(" · ")}</p>
+                </div>`
+              : ""
+          }
+          <button class="inline-action" type="button" data-card-id="${card.id}">이 카드로 해보기</button>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -439,31 +488,6 @@ function handleCardSelect(event) {
 }
 
 function renderSignalPanel() {
-  signalPanel.innerHTML = `
-    <article class="signal-card">
-      <h3>${selectedCard.cardName}</h3>
-      <p class="definition">${selectedCard.oneLine}</p>
-      <div class="card-meta card-meta-subtle">${selectedCard.position} · ${selectedCard.type}</div>
-      <div class="signal-choice-grid" role="group" aria-label="가까운 신호 고르기">
-        <button class="signal-choice green" type="button" data-signal-level="green">
-          <span>🟢 계속 써도 괜찮아요</span>
-          <small>이 방법이 지금 상황에 도움이 되고, 내 몸과 마음을 크게 닳게 하지 않는 상태입니다.</small>
-        </button>
-        <button class="signal-choice yellow" type="button" data-signal-level="yellow">
-          <span>🟡 조금 과해지는 중이에요</span>
-          <small>아직 위험한 정도는 아니지만, 이 방법을 오래 쓰고 있다는 신호가 보이는 상태입니다.</small>
-        </button>
-        <button class="signal-choice red" type="button" data-signal-level="red">
-          <span>🔴 멈추거나 줄이는 게 좋아요</span>
-          <small>이 방법을 계속 쓰면 나나 상황이 더 무거워질 수 있어, 잠깐 멈추거나 다른 방법으로 바꾸는 게 필요한 상태입니다.</small>
-        </button>
-      </div>
-      <div class="signal-detail" id="signalDetail">가까운 신호를 하나 골라 보세요.</div>
-    </article>
-  `;
-}
-
-function getSignalDetail(level) {
   const greenSignals = [
     selectedCard.greenState,
     "지금 이 방법이 상황을 정리하는 데 도움이 되고 있어요.",
@@ -472,8 +496,7 @@ function getSignalDetail(level) {
   const yellowSignals = [
     selectedCard.yellowState,
     "아직 위험한 상태는 아니지만, 이 방법을 오래 쓰고 있다는 신호일 수 있어요.",
-    "몸이나 마음이 조금씩 부담을 느끼기 시작할 수 있어요.",
-    "계속하면 빨간 신호로 넘어갈 수 있어요."
+    "몸이나 마음이 조금씩 부담을 느끼기 시작할 수 있어요."
   ].filter(Boolean);
   const redSignals = selectedCard.redSignals?.length
     ? selectedCard.redSignals
@@ -482,35 +505,42 @@ function getSignalDetail(level) {
     ? selectedCard.roleReleaseLines
     : ["지금 이 역할을 끝까지 붙잡지 않아도 됩니다.", "잠깐 내려와도 됩니다.", "다른 방식으로 바꿔도 됩니다."];
 
-  if (level === "green") {
-    return `
-      <div class="green-signal-box">
-        <strong>🟢 지금은 이 방법을 계속 써도 괜찮아 보여요.</strong>
-        <ul class="signal-list">
-          ${greenSignals.map((signal) => `<li>${signal}</li>`).join("")}
-        </ul>
+  signalPanel.innerHTML = `
+    <article class="signal-card">
+      <h3>${selectedCard.cardName}</h3>
+      <p class="definition">${selectedCard.oneLine}</p>
+      <div class="card-meta card-meta-subtle">${selectedCard.position} · ${selectedCard.type}</div>
+      <div class="action-focus-card">
+        <strong>지금 할 것</strong>
+        <p>${selectedCard.immediateAction}</p>
       </div>
-    `;
-  }
-
-  if (level === "yellow") {
-    return `
-      <div class="yellow-signal-box">
-        <strong>🟡 조금 과해지는 중일 수 있어요.</strong>
-        <ul class="signal-list">
-          ${yellowSignals.map((signal) => `<li>${signal}</li>`).join("")}
-        </ul>
+      <div class="card-detail">
+        <strong>하나만 해보기</strong>
+        <p>지금은 끝내려고 하지 말고, 위 행동 하나만 해본 뒤 멈춰도 됩니다.</p>
       </div>
-    `;
-  }
-
-  if (level === "red") {
-    return `
-      <div class="red-signal-box">
-        <strong>🔴 지금은 멈추거나 줄이는 게 좋아요.</strong>
-        <ul class="signal-list">
-          ${redSignals.map((signal) => `<li>${signal}</li>`).join("")}
-        </ul>
+      <div class="signal-helper">
+        <strong>무리하고 있는지 가볍게 확인하기</strong>
+        <p>이 카드를 쓰다가 부담이 커지는지 확인하고 싶을 때만 봐도 됩니다.</p>
+      </div>
+      <div class="signal-grid">
+        <div class="green-signal-box">
+          <strong>🟢 '${selectedCard.cardName}'을 괜찮게 쓰는 중</strong>
+          <ul class="signal-list">
+            ${greenSignals.map((signal) => `<li>${signal}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="yellow-signal-box">
+          <strong>🟡 '${selectedCard.cardName}'이 조금 과해지는 중</strong>
+          <ul class="signal-list">
+            ${yellowSignals.map((signal) => `<li>${signal}</li>`).join("")}
+          </ul>
+        </div>
+        <div class="red-signal-box">
+          <strong>🔴 지금은 '${selectedCard.cardName}'을 줄일 때</strong>
+          <ul class="signal-list">
+            ${redSignals.map((signal) => `<li>${signal}</li>`).join("")}
+          </ul>
+        </div>
       </div>
       <div class="role-release-box">
         <strong>🌿 ${selectedCard.roleReleaseTitle || "지금은 이렇게 내려놓아도 됩니다"}</strong>
@@ -518,29 +548,8 @@ function getSignalDetail(level) {
           ${releaseLines.map((line) => `<li>${line}</li>`).join("")}
         </ul>
       </div>
-    `;
-  }
-
-  return "가까운 신호를 하나 골라 보세요.";
-}
-
-function handleSignalChoice(event) {
-  const button = event.target.closest("[data-signal-level]");
-
-  if (!button || !signalPanel.contains(button)) {
-    return;
-  }
-
-  const level = button.dataset.signalLevel;
-  const detail = signalPanel.querySelector("#signalDetail");
-
-  signalPanel
-    .querySelectorAll(".signal-choice")
-    .forEach((item) => item.classList.toggle("is-selected", item === button));
-
-  if (detail) {
-    detail.innerHTML = getSignalDetail(level);
-  }
+    </article>
+  `;
 }
 
 function renderClassButtons() {
@@ -599,6 +608,13 @@ function getPackDisplayName(pack) {
 
 function getPackDescription(pack) {
   return pack?.displayDescription || pack?.oneLine || "";
+}
+
+function getLinkedPackDisplayNames(card) {
+  return (cardPackMap[card.id] || [])
+    .map((packName) => getPackDisplayName(packsByName.get(packName)))
+    .filter(Boolean)
+    .slice(0, 2);
 }
 
 function renderMileagePanel() {
@@ -881,6 +897,7 @@ function resetPrototype() {
   supplyChecks.querySelectorAll("input").forEach((input) => {
     input.checked = false;
   });
+  clearSupplyOkaySelection();
   supplyPackButton.hidden = true;
   supplyResult.textContent = "해당되는 항목을 체크한 뒤 다음 흐름을 봅니다.";
   positionPanel.innerHTML = `
@@ -924,11 +941,12 @@ async function init() {
     goToStep(0);
 
     progressBar.addEventListener("click", handleProgressClick);
+    supplyChecks.addEventListener("change", handleSupplyInputChange);
     supplyCheckButton.addEventListener("click", handleSupplyCheck);
+    supplyOkayButton.addEventListener("click", selectSupplyOkay);
     supplyPackButton.addEventListener("click", handleSupplyPackEquip);
     stateButtons.addEventListener("click", handleStateClick);
     cardResults.addEventListener("click", handleCardSelect);
-    signalPanel.addEventListener("click", handleSignalChoice);
     classButtons.addEventListener("click", handleClassSelect);
     recommendedPacks.addEventListener("click", handlePackEquip);
     document.addEventListener("click", handleNextClick);

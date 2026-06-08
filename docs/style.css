@@ -157,7 +157,8 @@ h2 {
 .check-item,
 .state-button,
 .class-chip,
-.pack-equip-button {
+.pack-equip-button,
+.condition-ok-button {
   min-height: 76px;
   padding: 16px;
   border: 1px solid var(--line);
@@ -182,7 +183,8 @@ h2 {
 
 .state-button,
 .class-chip,
-.pack-equip-button {
+.pack-equip-button,
+.condition-ok-button {
   text-align: left;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
@@ -193,6 +195,8 @@ h2 {
 .class-chip:focus-visible,
 .pack-equip-button:hover,
 .pack-equip-button:focus-visible,
+.condition-ok-button:hover,
+.condition-ok-button:focus-visible,
 .inline-action:hover,
 .inline-action:focus-visible,
 .primary-action:hover,
@@ -206,9 +210,18 @@ h2 {
 }
 
 .state-button.is-selected,
-.class-chip.is-selected {
+.class-chip.is-selected,
+.condition-ok-button.is-selected {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+
+.condition-ok-button {
+  display: block;
+  width: 100%;
+  min-height: 58px;
+  margin-top: 12px;
+  font-weight: 800;
 }
 
 .state-label,
@@ -393,66 +406,38 @@ h2 {
   line-height: 1.6;
 }
 
-.signal-choice-grid {
+.action-focus-card,
+.signal-helper {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.action-focus-card strong,
+.signal-helper strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.action-focus-card p,
+.signal-helper p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.action-focus-card p {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.signal-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
   margin-top: 18px;
-}
-
-.signal-choice {
-  min-height: 150px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--ink);
-  cursor: pointer;
-  text-align: left;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-.signal-choice:hover,
-.signal-choice:focus-visible {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
-  transform: translateY(-1px);
-  outline: none;
-}
-
-.signal-choice.green {
-  background: var(--accent-soft);
-}
-
-.signal-choice.yellow {
-  background: var(--yellow);
-}
-
-.signal-choice.red {
-  background: var(--red);
-}
-
-.signal-choice.is-selected {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(42, 99, 78, 0.16);
-}
-
-.signal-choice span {
-  display: block;
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.signal-choice small {
-  display: block;
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.signal-detail {
-  margin-top: 16px;
 }
 
 .yellow-signal-box,
@@ -649,7 +634,7 @@ h2 {
   .pack-button-list,
   .pack-grid,
   .pack-card-list,
-  .signal-choice-grid {
+  .signal-grid {
     grid-template-columns: 1fr;
   }
 
@@ -673,7 +658,7 @@ h2 {
   .pack-button-list,
   .pack-grid,
   .pack-card-list,
-  .signal-choice-grid {
+  .signal-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

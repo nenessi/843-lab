@@ -19,7 +19,7 @@
         <button type="button" data-step="1">컨디션</button>
         <button type="button" data-step="2">막힌 상태</button>
         <button type="button" data-step="3">가까운 카드</button>
-        <button type="button" data-step="4">신호 고르기</button>
+        <button type="button" data-step="4">하나 해보기</button>
         <button type="button" data-step="6">도움 팩</button>
       </nav>
 
@@ -31,7 +31,7 @@
         </div>
         <div class="stage-result">
           <strong>오늘의 흐름</strong>
-          <p>컨디션 먼저 확인 → 지금 막힌 상태 고르기 → 가까운 카드 보기 → 무리하고 있는지 보기 → 도움이 될 팩 보기</p>
+          <p>컨디션 먼저 확인 → 지금 막힌 상태 고르기 → 해볼 카드 고르기 → 하나만 해보기 → 도움이 될 팩 보기</p>
         </div>
         <div class="stage-actions">
           <button class="primary-action" type="button" data-next-step="1">다음으로</button>
@@ -45,6 +45,7 @@
           <p>지금 막힌 이유를 보기 전에, 잠·식사·물·몸 상태가 먼저 무너진 건 아닌지 가볍게 확인해요.</p>
         </div>
         <div class="check-grid" id="supplyChecks"></div>
+        <button class="condition-ok-button" type="button" id="supplyOkayButton">기본 컨디션은 괜찮은 편이다</button>
         <div class="stage-result" id="supplyResult">해당되는 항목을 체크한 뒤 다음 흐름을 봅니다.</div>
         <div class="stage-actions">
           <button class="primary-action" type="button" id="supplyCheckButton">컨디션 확인하기</button>
@@ -64,9 +65,10 @@
       <section class="stage" data-stage="3" aria-labelledby="cards-title">
         <div class="stage-heading">
           <span class="step-label">STEP 3</span>
-          <h2 id="cards-title">지금 내 방식과 가까운 카드 고르기</h2>
-          <p id="selectedState">아래 카드 중 지금 내가 하고 있거나, 하려고 하는 방식과 가까운 것을 골라 보세요.</p>
+          <h2 id="cards-title">지금 해볼 카드 고르기</h2>
+          <p id="selectedState">아래 카드는 지금 상태에서 먼저 해볼 만한 후보입니다. 전부 다 할 필요 없이, 지금 제일 쉬워 보이는 것 하나만 골라 보세요.</p>
         </div>
+        <div class="stage-result card-choice-note">3개가 모두 정답이라는 뜻은 아니에요. 지금 가장 해볼 만한 카드 하나만 고르면 됩니다.</div>
         <div class="position-panel" id="positionPanel">
           <span class="panel-label">지금 내 방식과 가까운 카드</span>
           <p>아직 선택한 상태가 없습니다.</p>
@@ -77,8 +79,8 @@
       <section class="stage" data-stage="4" aria-labelledby="signals-title">
         <div class="stage-heading">
           <span class="step-label">STEP 4</span>
-          <h2 id="signals-title">지금 이 방법, 어떤 신호에 가까운가요?</h2>
-          <p>방금 고른 카드가 지금 도움이 되는지, 조금 과한지, 이제 멈추거나 줄여야 하는지 골라 보세요.</p>
+          <h2 id="signals-title">이 카드로 하나만 해보기</h2>
+          <p>아래 행동 중 지금 할 수 있는 가장 작은 것 하나만 해보세요.</p>
         </div>
         <div id="signalPanel" class="signal-panel"></div>
         <div class="stage-actions">
