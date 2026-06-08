@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>지금 내 움직임 보기</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">843 카드 시스템</p>
+        <h1 id="page-title">지금 내 움직임 보기</h1>
+        <p class="intro">먼저 내 몸과 마음 상태를 확인하고, 지금 볼 카드와 도움이 될 팩을 하나씩 고릅니다.</p>
+      </section>
+
+      <nav class="progress-bar" aria-label="진행 단계" id="progressBar">
+        <button type="button" data-step="0">시작</button>
+        <button type="button" data-step="1">컨디션</button>
+        <button type="button" data-step="2">막힌 상태</button>
+        <button type="button" data-step="3">가까운 카드</button>
+        <button type="button" data-step="4">신호 고르기</button>
+        <button type="button" data-step="6">도움 팩</button>
+      </nav>
+
+      <section class="stage is-active" data-stage="0" aria-labelledby="situation-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 0</span>
+          <h2 id="situation-title">지금 상황 확인</h2>
+          <p>지금 내 상태를 가볍게 확인하고, 바로 해볼 만한 작은 행동까지 이어 봅니다.</p>
+        </div>
+        <div class="stage-result">
+          <strong>오늘의 흐름</strong>
+          <p>컨디션 먼저 확인 → 지금 막힌 상태 고르기 → 가까운 카드 보기 → 무리하고 있는지 보기 → 도움이 될 팩 보기</p>
+        </div>
+        <div class="stage-actions">
+          <button class="primary-action" type="button" data-next-step="1">다음으로</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="1" aria-labelledby="supply-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 1</span>
+          <h2 id="supply-title">컨디션 먼저 확인</h2>
+          <p>지금 막힌 이유를 보기 전에, 잠·식사·물·몸 상태가 먼저 무너진 건 아닌지 가볍게 확인해요.</p>
+        </div>
+        <div class="check-grid" id="supplyChecks"></div>
+        <div class="stage-result" id="supplyResult">해당되는 항목을 체크한 뒤 다음 흐름을 봅니다.</div>
+        <div class="stage-actions">
+          <button class="primary-action" type="button" id="supplyCheckButton">컨디션 확인하기</button>
+          <button class="secondary-action" type="button" id="supplyPackButton" hidden>자원 회복 미니팩 보기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="2" aria-labelledby="state-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 2</span>
+          <h2 id="state-title">지금 막힌 상태 고르기</h2>
+          <p>아래 문장 중 지금 제일 가까운 것을 하나만 골라 보세요.</p>
+        </div>
+        <div class="state-grid" id="stateButtons"></div>
+      </section>
+
+      <section class="stage" data-stage="3" aria-labelledby="cards-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 3</span>
+          <h2 id="cards-title">지금 내 방식과 가까운 카드 고르기</h2>
+          <p id="selectedState">아래 카드 중 지금 내가 하고 있거나, 하려고 하는 방식과 가까운 것을 골라 보세요.</p>
+        </div>
+        <div class="position-panel" id="positionPanel">
+          <span class="panel-label">지금 내 방식과 가까운 카드</span>
+          <p>아직 선택한 상태가 없습니다.</p>
+        </div>
+        <div class="cards-grid" id="cardResults"></div>
+      </section>
+
+      <section class="stage" data-stage="4" aria-labelledby="signals-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 4</span>
+          <h2 id="signals-title">지금 이 방법, 어떤 신호에 가까운가요?</h2>
+          <p>방금 고른 카드가 지금 도움이 되는지, 조금 과한지, 이제 멈추거나 줄여야 하는지 골라 보세요.</p>
+        </div>
+        <div id="signalPanel" class="signal-panel"></div>
+        <div class="stage-actions">
+          <button class="primary-action" type="button" data-next-step="6">도움이 될 팩 보기</button>
+          <button class="secondary-action" type="button" data-next-step="5">내 평소 방식과 비교해 보기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="5" aria-labelledby="class-title">
+        <div class="stage-heading">
+          <span class="step-label">필요하면 같이 보기</span>
+          <h2 id="class-title">내 평소 방식과 비교해 보기</h2>
+          <p>내가 평소에 자주 쓰는 방식과 지금 고른 카드가 잘 맞는지 가볍게 확인합니다.</p>
+        </div>
+        <div class="class-note" id="classEmptyNote">내 평소 방식을 고르면 이 카드가 나에게 편한지, 오래 쓰면 피곤한지 볼 수 있어요.</div>
+        <div class="class-button-grid" id="classButtons"></div>
+        <div class="mileage-panel" id="mileagePanel"></div>
+        <div class="stage-actions">
+          <button class="primary-action" type="button" data-next-step="6">도움 팩 보기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="6" aria-labelledby="packs-title">
+        <div class="stage-heading">
+          <span class="step-label">STEP 5</span>
+          <h2 id="packs-title">도움이 될 팩 보기</h2>
+          <p>지금 막힌 이유가 비슷하다면, 아래 카드 묶음이 도움이 될 수 있어요. 지금 필요한 팩 하나만 봅니다.</p>
+        </div>
+        <div class="recommended-packs" id="recommendedPacks"></div>
+        <div class="pack-detail" id="packDetail">
+          <div class="empty-state">아직 고른 팩이 없습니다.</div>
+        </div>
+        <div class="stage-actions">
+          <button class="secondary-action" type="button" data-next-step="0">다시 고르기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="7" aria-labelledby="action-title" hidden>
+        <div class="stage-heading">
+          <span class="step-label">이전 단계</span>
+          <h2 id="action-title">작게 해보기</h2>
+          <p>이 영역은 현재 메인 흐름에서 쓰지 않습니다.</p>
+        </div>
+        <div class="final-action" id="finalAction"></div>
+        <div class="stage-actions">
+          <button class="secondary-action" type="button" data-next-step="0">다시 고르기</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

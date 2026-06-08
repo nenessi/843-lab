@@ -1,0 +1,679 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7f4;
+  --paper: #ffffff;
+  --ink: #1f2522;
+  --muted: #66736d;
+  --line: #dfe6e1;
+  --accent: #236b5a;
+  --accent-strong: #174d40;
+  --accent-soft: #e6f2ee;
+  --green: #dff4e5;
+  --yellow: #fff1c9;
+  --red: #ffe1dc;
+  --stage: #fbfdfb;
+  --shadow: 0 18px 42px rgba(31, 37, 34, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0 56px;
+}
+
+.hero {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.eyebrow,
+.panel-label,
+.step-label {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 14px;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.intro,
+.stage-heading p,
+.section-heading p,
+.definition {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.progress-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+  margin: 22px 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(245, 247, 244, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.progress-bar button {
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.progress-bar button.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.progress-bar button.is-done {
+  border-color: var(--accent-soft);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.stage {
+  display: none;
+  margin-top: 18px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--stage);
+  box-shadow: var(--shadow);
+}
+
+.stage.is-active {
+  display: block;
+}
+
+.stage.is-past {
+  display: none;
+}
+
+.stage-heading {
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+
+.check-grid,
+.state-grid,
+.cards-grid,
+.class-button-grid,
+.pack-button-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.check-item,
+.state-button,
+.class-chip,
+.pack-equip-button {
+  min-height: 76px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(47, 40, 30, 0.04);
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.check-item input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+}
+
+.state-button,
+.class-chip,
+.pack-equip-button {
+  text-align: left;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.state-button:hover,
+.state-button:focus-visible,
+.class-chip:hover,
+.class-chip:focus-visible,
+.pack-equip-button:hover,
+.pack-equip-button:focus-visible,
+.inline-action:hover,
+.inline-action:focus-visible,
+.primary-action:hover,
+.primary-action:focus-visible,
+.secondary-action:hover,
+.secondary-action:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.state-button.is-selected,
+.class-chip.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.state-label,
+.class-display-label,
+.pack-equip-button strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.state-description,
+.class-display-description {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.pack-equip-button span {
+  display: block;
+  margin-top: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pack-equip-button small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.stage-result,
+.class-note,
+.position-panel,
+.recommended-packs {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.stage-result p,
+.stage-result strong,
+.position-panel p,
+.class-note p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.position-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.position-chip,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.primary-action,
+.secondary-action,
+.inline-action {
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.primary-action,
+.inline-action {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.secondary-action {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--accent-strong);
+}
+
+.card,
+.signal-card,
+.mileage-card,
+.pack-card,
+.final-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 0 10px 24px rgba(31, 37, 34, 0.06);
+}
+
+.core-card {
+  border-top: 4px solid var(--accent);
+}
+
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.card-meta {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.card-meta-subtle {
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.card h3,
+.signal-card h3,
+.mileage-card h3,
+.pack-card h3,
+.final-card h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.card-detail,
+.profile-detail,
+.profile-note {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.card-detail strong,
+.profile-detail strong,
+.profile-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.card-detail p,
+.profile-detail p,
+.profile-note p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.signal-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.signal-choice {
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.signal-choice:hover,
+.signal-choice:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.signal-choice.green {
+  background: var(--accent-soft);
+}
+
+.signal-choice.yellow {
+  background: var(--yellow);
+}
+
+.signal-choice.red {
+  background: var(--red);
+}
+
+.signal-choice.is-selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(42, 99, 78, 0.16);
+}
+
+.signal-choice span {
+  display: block;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.signal-choice small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.signal-detail {
+  margin-top: 16px;
+}
+
+.yellow-signal-box,
+.green-signal-box,
+.red-signal-box,
+.role-release-box,
+.pack-layer-note,
+.result-notice {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.yellow-signal-box {
+  background: var(--yellow);
+}
+
+.green-signal-box {
+  background: var(--accent-soft);
+}
+
+.red-signal-box {
+  background: var(--red);
+}
+
+.role-release-box,
+.pack-layer-note,
+.result-notice,
+.mileage-card.natural {
+  background: var(--accent-soft);
+}
+
+.mileage-card.costly {
+  background: var(--yellow);
+}
+
+.mileage-card.neutral {
+  background: #f0f3ef;
+}
+
+.yellow-signal-box strong,
+.green-signal-box strong,
+.red-signal-box strong,
+.role-release-box strong,
+.pack-layer-note strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.signal-list,
+.release-list,
+.profile-detail ul {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.6;
+}
+
+.signal-list li + li,
+.release-list li + li {
+  margin-top: 7px;
+}
+
+.class-button-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 14px;
+}
+
+.class-chip {
+  min-height: 52px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.mileage-panel {
+  margin-top: 14px;
+}
+
+.pack-detail {
+  margin-top: 14px;
+}
+
+.pack-card {
+  border-color: var(--accent);
+  background: #fbfdfb;
+}
+
+.pack-grid,
+.pack-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pack-cards-area {
+  margin: 18px 0;
+}
+
+.pack-area-title {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.pack-group {
+  margin-top: 16px;
+}
+
+.pack-group h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.mini-pack-card {
+  padding: 16px;
+  border: 1px dashed #b9c8c0;
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.mini-pack-card h5 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.mini-pack-card p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.mini-pack-card div {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.mini-pack-card div + div {
+  margin-top: 10px;
+}
+
+.mini-pack-card strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.mini-pack-card span {
+  display: block;
+  line-height: 1.55;
+}
+
+.action-focus {
+  border-style: solid;
+  background: var(--accent-soft);
+}
+
+.final-card {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.final-card h3 {
+  font-size: clamp(28px, 5vw, 44px);
+}
+
+.empty-state {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(100% - 24px, 1120px);
+    padding: 30px 0 44px;
+  }
+
+  .progress-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: static;
+  }
+
+  .stage {
+    padding: 18px;
+  }
+
+  .check-grid,
+  .state-grid,
+  .cards-grid,
+  .class-button-grid,
+  .pack-button-list,
+  .pack-grid,
+  .pack-card-list,
+  .signal-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-actions {
+    display: grid;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .inline-action {
+    width: 100%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .progress-bar,
+  .check-grid,
+  .state-grid,
+  .cards-grid,
+  .class-button-grid,
+  .pack-button-list,
+  .pack-grid,
+  .pack-card-list,
+  .signal-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
