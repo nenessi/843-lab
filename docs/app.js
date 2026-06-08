@@ -15,6 +15,7 @@ const mileagePanel = document.querySelector("#mileagePanel");
 const recommendedPacks = document.querySelector("#recommendedPacks");
 const packDetail = document.querySelector("#packDetail");
 const finalAction = document.querySelector("#finalAction");
+const DATA_BASE = window.location.pathname.includes("/prototype/") ? "../data" : "./data";
 
 const supplyItems = [
   "잠을 잘 못 자서 피곤하다",
@@ -74,11 +75,11 @@ async function loadPrototypeData() {
     packsResponse,
     packCardsResponse
   ] = await Promise.all([
-    fetch("../data/cards.json"),
-    fetch("../data/router.json"),
-    fetch("../data/classes.json"),
-    fetch("../data/packs.json"),
-    fetch("../data/pack-cards.json")
+    fetch(`${DATA_BASE}/cards.json`),
+    fetch(`${DATA_BASE}/router.json`),
+    fetch(`${DATA_BASE}/classes.json`),
+    fetch(`${DATA_BASE}/packs.json`),
+    fetch(`${DATA_BASE}/pack-cards.json`)
   ]);
 
   if (
